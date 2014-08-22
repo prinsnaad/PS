@@ -1,4 +1,4 @@
-﻿$company = Read-Host "Vhat is the company name?"
+﻿$company = Read-Host "What is the company name?"
 $domain = Read-Host "What is the domain name? Enter as DC=domain,DC=local"
 New-ADOrganizationalUnit -Name "Common"
 New-ADOrganizationalUnit -Name "$Company"
