@@ -2,8 +2,7 @@
 switch -wildcard ($servername) {
 	"GBG*" { "Server is in Göteborg" }
 	"STH*" { "Server is in Stockholm" }
-	"MLM*" { "Server is in Malmö"
-     break }
+	"MLM*" { "Server is in Malmö"; break }
 	"*FIL*" { "Server is a filserver" }	
 	"*EXC*" { "Server is an Exchangeserver" }	
 	"*DOM*" { "Server is a Domaincontroller" }
