@@ -71,6 +71,9 @@ switch -wildcard ($servername) {
 }
 help about_Switch
 
+get-vm | Where-Object {$_.State -eq "Off"} | Start-VM
+get-vm | Where-Object {$_.State -eq "Running"} | Stop-VM
+
 Project
 	-	Script that creates default AD OUs. Company, Location, Common etc.
 	-	Reset password for one/multiple AD users.
