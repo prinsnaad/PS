@@ -79,6 +79,9 @@ Project
 	-	Reset password for one/multiple AD users.
 	¨	Backup userfiles, documents, files to remote location.
 	-	Add progressbar to filecopy
+	
+get-aduser -filter {Enabled -eq "True" } | ft samaccountname,enabled
+# Plockar ut alla users som är Enabled eller Disabled
 
 
 
