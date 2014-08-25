@@ -1,5 +1,5 @@
 ﻿$company = Read-Host "What is the company name?"
-$domain = Read-Host "What is the domain name? Enter as DC=domain,DC=local"
+$domain = Get-ADDomain | select -ExpandProperty DistinguishedName
 import-module ActiveDirectory
 New-ADOrganizationalUnit -Name "Common"
 New-ADOrganizationalUnit -Name "$Company"
