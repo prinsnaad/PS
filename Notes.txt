@@ -83,5 +83,35 @@ Project
 get-aduser -filter {Enabled -eq "True" } | ft samaccountname,enabled
 # Plockar ut alla users som är Enabled eller Disabled
 
+#Replicate MDT to another share with powershell.
+#
+Import-Module "C:\Program Files\Microsoft Deployment Toolkit\bin\MicrosoftDeploymentToolkit.psd1"
+New-PSDrive -Name "DS001" -PSProvider MDTProvider -Root "E:\DeploymentShare"
+Update-MDTLinkedDS -path "DS001:\Linked Deployment Shares\LINKED002" -Verbose
+
+
+#Moves files and send an email.
+Move-Item C:\Users\Me\Desktop\downloads\* g:\Movies
+Move-Item 'C:\Users\Me\Pictures\*' g:\Pictures 
+$EmailFrom = “email”
+$EmailTo = “email”
+$Subject = “Mission Accomplished”
+$Body = “Data transferred”
+$SMTPServer = “smtp.live.com”
+$SMTPClient = New-Object Net.Mail.SmtpClient($SmtpServer, 587)
+$SMTPClient.EnableSsl = $true
+$SMTPClient.Credentials = New-Object  System.Net.NetworkCredential(“login”, “pass”);
+$SMTPClient.Send($EmailFrom, $EmailTo, $Subject, $Body)
+
+
+#Connect Powershell remote system
+enter-PsSession -computername <name>
+exit-PsSession
+
+Enter-PsSession -UseSSL #Set up SSL on the remote computer. "Secrets of powershell remoting"
+Enable-WSManCredSSP -role client/server
+invoke-command -ThrottleLimit <nr>
+
+
 
 

@@ -1,6 +1,6 @@
 ﻿#Find and copy
-
-$files = Get-ChildItem -path e:\test\folder1 -include "*.txt" -Recurse
+$Destination = Read-Host "Destination path"
+$files = Get-ChildItem -path C:\Users\ -include "*.pst" -Recurse -Force
 foreach ($file in $files) {
-	Copy-Item -path $file.FullName -Destination e:\test\folder2\
+	Copy-Item -path $file.FullName -Destination "$destination"
 }
