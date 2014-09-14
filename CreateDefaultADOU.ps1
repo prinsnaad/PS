@@ -11,3 +11,5 @@ NEW-ADOrganizationalUnit “Distribution” –path “OU=Common,$domain” > $n
 NEW-ADOrganizationalUnit “Users” –path “OU=$company,$domain” > $null
 NEW-ADOrganizationalUnit “Clients” –path “OU=$company,$domain” > $null
 NEW-ADOrganizationalUnit “Servers” –path “OU=$company,$domain” > $null
+redirusr “ou=Users,OU=$company,$domain”
+redircmp "ou=Clients,OU=$company,$domain”

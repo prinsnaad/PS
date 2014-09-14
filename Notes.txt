@@ -87,7 +87,7 @@ get-aduser -filter {Enabled -eq "True" } | ft samaccountname,enabled
 #
 Import-Module "C:\Program Files\Microsoft Deployment Toolkit\bin\MicrosoftDeploymentToolkit.psd1"
 New-PSDrive -Name "DS001" -PSProvider MDTProvider -Root "E:\DeploymentShare"
-Update-MDTLinkedDS -path "DS001:\Linked Deployment Shares\LINKED002" -Verbose
+Update-MDTLinkedDS -path "DS001:\Linked Deployment Shares\LINKED001" -Verbose
 
 
 #Moves files and send an email.
@@ -112,6 +112,6 @@ Enter-PsSession -UseSSL #Set up SSL on the remote computer. "Secrets of powershe
 Enable-WSManCredSSP -role client/server
 invoke-command -ThrottleLimit <nr>
 
-
-
-
+#Scope
+#Dont modify any other scope than your own.
+Write-Output
